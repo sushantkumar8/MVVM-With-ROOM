@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.assignment.fluper.R
 import com.assignment.fluper.databinding.ActivityImageBinding
+import com.assignment.fluper.utils.Constant
 import com.bumptech.glide.Glide
 
 /**
@@ -47,8 +48,8 @@ class ImageActivity : AppCompatActivity() {
      */
     private val data: Unit
          get() {
-            val image = intent.getStringExtra("image")
-            val title = intent.getStringExtra("title")
+            val image = intent.getStringExtra(Constant.IMAGE)
+            val title = intent.getStringExtra(Constant.TITLE)
             if (title != null && title.isNotEmpty()) setTitle(title)
             if (image != null && image.isNotEmpty()) Glide.with(this)
                 .load(image)

@@ -10,6 +10,7 @@ import com.assignment.fluper.db.Event
 import com.assignment.fluper.db.ProductEntity
 import com.assignment.fluper.interfaces.IOnCheckForError
 import com.assignment.fluper.utils.AppLogger
+import com.assignment.fluper.utils.Constant
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -52,7 +53,7 @@ class ProductViewModel(private val repository : ProductRepository) : ViewModel()
     val productBtnUpdate = MutableLiveData<String>()
 
     init {
-        productBtnUpdate.value = "ADD PRODUCT"
+        productBtnUpdate.value = Constant.ADD_PRODUCT
     }
 
     private val statusMessage = MutableLiveData<Event<String>>()
@@ -78,7 +79,7 @@ class ProductViewModel(private val repository : ProductRepository) : ViewModel()
         if(!isChecked)
             return
         if(colorCode?.isEmpty()!!){
-            statusMessage.value = Event("Please select the color code")
+            statusMessage.value = Event(Constant.COLOR_MESSAGE)
             return
         }
         val name = productName.value!!
@@ -113,7 +114,7 @@ class ProductViewModel(private val repository : ProductRepository) : ViewModel()
         productPhoto.value = productEntity.product_photo
         isUpdate = true
         productUpdateOrDelete = productEntity
-        productBtnUpdate.value = "UPDATE PRODUCT"
+        productBtnUpdate.value = Constant.UPDATE_PRODUCT
 
     }
 
@@ -168,17 +169,17 @@ class ProductViewModel(private val repository : ProductRepository) : ViewModel()
     fun insert(product : ProductEntity):Job = viewModelScope.launch {
             repository.insert(product)
             AppLogger.e("The Products are ", " $product");
-            statusMessage.value = Event("Product insert successfully.")
+            statusMessage.value = Event(Constant.INSERT_MESSAGE)
     }
 
     fun update(product : ProductEntity):Job = viewModelScope.launch {
         repository.update(product)
-        statusMessage.value = Event("Product update successfully.")
+        statusMessage.value = Event(Constant.UPDATE_MESSAGE)
     }
 
     fun delete(product : ProductEntity):Job = viewModelScope.launch {
         repository.delete(product)
-        statusMessage.value = Event("Product delete successfully.")
+        statusMessage.value = Event(Constant.DELETE_MESSAGE)
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

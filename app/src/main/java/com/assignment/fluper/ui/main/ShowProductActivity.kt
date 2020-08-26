@@ -15,6 +15,7 @@ import com.assignment.fluper.db.ProductDatabase
 import com.assignment.fluper.db.ProductEntity
 import com.assignment.fluper.interfaces.IProductActions
 import com.assignment.fluper.model.Product
+import com.assignment.fluper.utils.Constant
 import com.assignment.fluper.utils.Singleton
 import com.assignment.fluper.utils.Util
 import com.assignment.fluper.viewmodel.ProductViewModel
@@ -110,8 +111,8 @@ class ShowProductActivity : AppCompatActivity() {
      */
     private fun listItemClicked(productEntity: ProductEntity){
             val intent = Intent(this, ProductDetailsActivity::class.java)
-            intent.putExtra("id", productEntity.id)
-            intent.putExtra("Json", "No")
+            intent.putExtra(Constant.ID, productEntity.id)
+            intent.putExtra(Constant.JSON, Constant.NO)
             startActivity(intent)
     }
 
@@ -120,8 +121,8 @@ class ShowProductActivity : AppCompatActivity() {
      */
     private fun listItemImageClicked(productEntity: ProductEntity){
         val  intent = Intent(this, ImageActivity::class.java)
-             intent.putExtra("image", productEntity.product_photo)
-             intent.putExtra("title", productEntity.name)
+             intent.putExtra(Constant.IMAGE, productEntity.product_photo)
+             intent.putExtra(Constant.TITLE, productEntity.name)
              startActivity(intent)
     }
 
@@ -135,12 +136,12 @@ class ShowProductActivity : AppCompatActivity() {
             val productJsonArray = JSONArray(Util.readJSONFromAsset(this))
             for (i in 0 until productJsonArray.length()) {
                 val productJsonObject = productJsonArray.getJSONObject(i)
-                val name = productJsonObject.optString("name")
-                val description = productJsonObject.optString("description")
-                val color = productJsonObject.optString("color")
-                val regularPrice = productJsonObject.optDouble("regular_price")
-                val salePrice = productJsonObject.optDouble("sale_price")
-                val productPhoto = productJsonObject.optString("product_photo")
+                val name = productJsonObject.optString(Constant.NAME)
+                val description = productJsonObject.optString(Constant.DESCRIPTION)
+                val color = productJsonObject.optString(Constant.COLOR)
+                val regularPrice = productJsonObject.optDouble(Constant.REGULAR_PRICE)
+                val salePrice = productJsonObject.optDouble(Constant.SALE_PRICE)
+                val productPhoto = productJsonObject.optString(Constant.PRODUCT_PHOTO)
                 val product =
                     Product(1, name, description, regularPrice, salePrice, productPhoto, color)
                 productList?.add(product)

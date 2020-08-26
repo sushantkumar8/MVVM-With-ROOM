@@ -17,6 +17,7 @@ import com.assignment.fluper.R
 import com.assignment.fluper.model.Product
 import com.assignment.fluper.ui.main.ImageActivity
 import com.assignment.fluper.ui.main.ProductDetailsActivity
+import com.assignment.fluper.utils.Constant
 import com.assignment.fluper.utils.Util
 import com.bumptech.glide.Glide
 
@@ -61,19 +62,19 @@ class ProductJSONAdapter(
 
         holder.mProductPageRelativeLayout.setOnClickListener {
             val intent = Intent(context, ProductDetailsActivity::class.java)
-            intent.putExtra("Json", "Yes")
-            intent.putExtra("name", model.name)
-            intent.putExtra("description", model.description)
-            intent.putExtra("regularPrice", model.regularPrice.toString())
-            intent.putExtra("salePrice", model.salePrice.toString())
-            intent.putExtra("productPhoto", model.productPhoto)
-            intent.putExtra("selectedColor", model.selectedColor)
+            intent.putExtra(Constant.JSON, Constant.YES)
+            intent.putExtra(Constant.NAME, model.name)
+            intent.putExtra(Constant.DESCRIPTION, model.description)
+            intent.putExtra(Constant.REGULAR_PRICE, model.regularPrice.toString())
+            intent.putExtra(Constant.SALE_PRICE, model.salePrice.toString())
+            intent.putExtra(Constant.PRODUCT_PHOTO, model.productPhoto)
+            intent.putExtra(Constant.COLOR, model.selectedColor)
             context.startActivity(intent)
         }
         holder.mProductImageView.setOnClickListener {
             val intent = Intent(context, ImageActivity::class.java)
-            intent.putExtra("image", model.productPhoto)
-            intent.putExtra("title", model.name)
+            intent.putExtra(Constant.IMAGE, model.productPhoto)
+            intent.putExtra(Constant.TITLE, model.name)
             context.startActivity(intent)
         }
     }

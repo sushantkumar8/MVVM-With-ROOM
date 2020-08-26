@@ -15,6 +15,7 @@ import com.assignment.fluper.data.repository.ProductRepository
 import com.assignment.fluper.databinding.ActivityProductBinding
 import com.assignment.fluper.db.ProductDatabase
 import com.assignment.fluper.db.ProductEntity
+import com.assignment.fluper.utils.Constant
 import com.assignment.fluper.utils.Singleton
 import com.assignment.fluper.viewmodel.ProductViewModel
 import com.assignment.fluper.viewmodel.ProductViewModelFactory
@@ -74,7 +75,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         bindingProductBinding.lifecycleOwner = this
         productViewModel.message.observe(this, {
             it.getContentIfNotHandled()?.let {
-                if(it == "Product delete successfully."){
+                if(it == Constant.DELETE_MESSAGE){
                     Toast.makeText(
                         this,
                         it,
@@ -133,8 +134,8 @@ class ProductDetailsActivity : AppCompatActivity() {
 
                 bindingProductBinding.ivProductImage.setOnClickListener {
                     val intent = Intent(this, ImageActivity::class.java)
-                    intent.putExtra("image", productDBS.product_photo)
-                    intent.putExtra("title", productDBS.name)
+                    intent.putExtra(Constant.IMAGE, productDBS.product_photo)
+                    intent.putExtra(Constant.TITLE, productDBS.name)
                     startActivity(intent)
                 }
             }
@@ -150,15 +151,15 @@ class ProductDetailsActivity : AppCompatActivity() {
      */
     private val data: Unit
          get() {
-            id = intent.getIntExtra("id",0)
-            val Json = intent.getStringExtra("Json")
+            id = intent.getIntExtra(Constant.ID,0)
+            val Json = intent.getStringExtra(Constant.JSON)
             if(Json == "Yes"){
-                val name = intent.getStringExtra("name")
-                val description = intent.getStringExtra("description")
-                val regularPrice = intent.getStringExtra("regularPrice")
-                val salePrice = intent.getStringExtra("salePrice")
-                val productPhoto = intent.getStringExtra("productPhoto")
-                val selectedColor = intent.getStringExtra("selectedColor")
+                val name = intent.getStringExtra(Constant.NAME)
+                val description = intent.getStringExtra(Constant.DESCRIPTION)
+                val regularPrice = intent.getStringExtra(Constant.REGULAR_PRICE)
+                val salePrice = intent.getStringExtra(Constant.SALE_PRICE)
+                val productPhoto = intent.getStringExtra(Constant.PRODUCT_PHOTO)
+                val selectedColor = intent.getStringExtra(Constant.COLOR)
                 setJsonData(name,description,regularPrice,salePrice,productPhoto,selectedColor)
             }else{
                 displaysSingleProductDB()
@@ -218,13 +219,13 @@ class ProductDetailsActivity : AppCompatActivity() {
      */
      fun updateProduct() {
             val intent = Intent(this, CreateProductActivity::class.java)
-            intent.putExtra("regular_price", productDBS.regular_price)
-            intent.putExtra("sale_price", productDBS.sale_price)
-            intent.putExtra("name", productDBS.name)
-            intent.putExtra("description", productDBS.description)
-            intent.putExtra("color",productDBS.selected_color)
-            intent.putExtra("id", id)
-            intent.putExtra("image", productDBS.product_photo)
+            intent.putExtra(Constant.REGULAR_PRICE, productDBS.regular_price)
+            intent.putExtra(Constant.SALE_PRICE, productDBS.sale_price)
+            intent.putExtra(Constant.NAME, productDBS.name)
+            intent.putExtra(Constant.DESCRIPTION, productDBS.description)
+            intent.putExtra(Constant.COLOR,productDBS.selected_color)
+            intent.putExtra(Constant.ID, id)
+            intent.putExtra(Constant.IMAGE, productDBS.product_photo)
             startActivityForResult(intent, 100)
     }
 

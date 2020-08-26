@@ -17,6 +17,7 @@ import com.assignment.fluper.db.ProductEntity
 import com.assignment.fluper.interfaces.IColorUpdate
 import com.assignment.fluper.interfaces.IOnCheckForError
 import com.assignment.fluper.model.ColorModel
+import com.assignment.fluper.utils.Constant
 import com.assignment.fluper.viewmodel.ProductViewModel
 import com.assignment.fluper.viewmodel.ProductViewModelFactory
 import java.util.*
@@ -96,7 +97,7 @@ class CreateProductActivity : AppCompatActivity() , IColorUpdate {
                     it,
                     Toast.LENGTH_SHORT
                 ).show()
-                if(it == "Product update successfully."){
+                if(it == Constant.UPDATE_MESSAGE){
                     val resultIntent = Intent()
                     setResult(RESULT_OK, resultIntent)
                     finish()
@@ -137,12 +138,12 @@ class CreateProductActivity : AppCompatActivity() , IColorUpdate {
          get() {
             id = intent.getIntExtra("id", 0)
             if (id > 0) {
-                val name = intent.getStringExtra("name")
-                val description = intent.getStringExtra("description")
-                val regularPrice = intent.getStringExtra("regular_price")
-                val salePrice = intent.getStringExtra("sale_price")
-                color = intent.getStringExtra("color")
-                val image = intent.getStringExtra("image")
+                val name = intent.getStringExtra(Constant.NAME)
+                val description = intent.getStringExtra(Constant.DESCRIPTION)
+                val regularPrice = intent.getStringExtra(Constant.REGULAR_PRICE)
+                val salePrice = intent.getStringExtra(Constant.SALE_PRICE)
+                color = intent.getStringExtra(Constant.COLOR)
+                val image = intent.getStringExtra(Constant.IMAGE)
                 productViewModel.initUpdate(ProductEntity(id,name!!,description!!,regularPrice!! ,
                     salePrice!!,image!!,color!! ))
                 bindingCreateProductBinding.edtName.setText(name)
