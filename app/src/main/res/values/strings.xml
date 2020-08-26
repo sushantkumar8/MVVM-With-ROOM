@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Fluper Assignment</string>
+    <string name="txt_show_product">Show Product</string>
+    <string name="txt_create_product">Create Product</string>
+    <string name="txt_rupee_sumbol">₹ </string>
+    <string name="txt_product_name">Product Name</string>
+    <string name="txt_description">Description</string>
+    <string name="txt_regular_price">Regular Price</string>
+    <string name="txt_sale_price">Sale Price</string>
+    <string name="txt_add_product">Add Product</string>
+    <string name="txt_product_image_url">Product Image URL</string>
+    <string name="txt_please_enter_product_name">Please enter product name</string>
+    <string name="txt_please_enter_product_description">Please enter product description</string>
+    <string name="txt_please_enter_sale_price">Please enter sale price</string>
+    <string name="txt_please_enter_regular_price">Please enter regular price</string>
+    <string name="txt_please_enter_product_image">Please enter product image url</string>
+    <string name="txt_please_choose_color">Please choose color</string>
+    <string name="txt_product_insert_successfully">Product insert successfully.</string>
+    <string name="txt_error_on_product_insert">Error occurs on inserting the product.</string>
+    <string name="txt_product_update_successfully">Product update successfully.</string>
+    <string name="txt_product_delete_successfully">Product delete successfully.</string>
+    <string name="txt_error_on_product_update">Error occurs on updating the product.</string>
+    <string name="txt_update_product">Update Product</string>
+</resources>

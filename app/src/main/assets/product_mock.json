@@ -1,0 +1,26 @@
+﻿[
+  {
+    "name": "Cauliflower",
+    "description": "Cauliflower is one of several vegetables in the species Brassica oleracea in the     genus Brassica, which is in the Brassicaceae family. It is an annual plant that reproduces by seed..",
+    "color": "#b79268",
+    "regular_price": 30,
+    "sale_price": 24,
+    "product_photo": "https://images.unsplash.com/photo-1506808547685-e2ba962ded60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80"
+  },
+  {
+    "name": "Garlic",
+    "description": "Garlic is a species in the onion genus, Allium. Its close relatives include the onion, shallot, leek, chive, and Chinese onion. It is native to Central Asia and northeastern Iran, and has long been a common seasoning worldwide, with a history of several thousand years of human  consumption and use.",
+    "color": "#D01408",
+    "regular_price": 80,
+    "sale_price": 75,
+    "product_photo": "https://images.unsplash.com/photo-1501420193726-1f65acd36cda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+  },
+  {
+    "name": "Green Beans",
+    "description": "Green beans are the unripe, young fruit and protective pods of various cultivars of the common bean. Immature or young pods of the runner bean, yardlong bean, and hyacinth bean are  used in a similar way.",
+    "color": "#FE9647",
+    "regular_price": 40,
+    "sale_price": 32,
+    "product_photo": "https://images.unsplash.com/photo-1448293065296-c7e2e5b76ae9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2843&q=80"
+  }
+]
