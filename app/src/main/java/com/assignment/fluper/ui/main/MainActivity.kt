@@ -15,19 +15,17 @@ import com.assignment.fluper.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var bindingMainActivity: ActivityMainBinding
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViews()
-    }
-
-    /**
-     *  Initializing the View
-     */
-    private fun initViews() {
+        // Initializing the layout should be in onCreate() method, and the views initialization should be in onStart()
         bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
         val view: View = bindingMainActivity.root
         setContentView(view)
+    }
+
+    // Ideally we should be initializing the views on onStart() instead of onCreate()
+    override fun onStart() {
         initListeners()
     }
 
@@ -50,4 +48,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(Intent(this, CreateProductActivity::class.java))
         }
     }
+    
+    /**
+     * Overriding the default methods of Activity
+     */
+    override fun onPause() {
+    // call the superclass method first
+        super.onStop()
+    }    
+    
+    override fun onStop() {
+    // call the superclass method first
+        super.onStop()
+    } 
 }
